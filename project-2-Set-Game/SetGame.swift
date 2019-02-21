@@ -43,7 +43,7 @@ class SetGame {
     }
     private func resetDeckAndBoard(){
         createDeck()
-        deck.shuffle()
+        //deck.shuffle()
         dealMoreCards(cardsToDeal: 12)
     }
     
@@ -146,11 +146,14 @@ class SetGame {
     }
     private func dealMoreCards(cardsToDeal: Int) {
         dealCardLoop: for _ in 1...cardsToDeal{
-            if deck.count == 0 || cardsOnBoard.count == 24 {
+            if deck.count == 0 {
                 break dealCardLoop
             }
             cardsOnBoard.append(deck[0])
             deck.remove(at: 0)
+            if cardsToDeal == 3 {
+               delegate?.dealtCard(didDealt: true)
+            }
         }
     }
     public func dealThreeMoreCards() {

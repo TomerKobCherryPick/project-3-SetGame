@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cheatButton: UIButton!
     @IBOutlet weak var iphoneScoreLabel: UILabel!
     @IBOutlet weak var whoWonLabel: UILabel!
+    @IBOutlet weak var cardsView: BoardOfCardsView!
     var opponentState: String {
         get {
             return game.opponentState.stateToEmoji()
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         game.delegate = self
+        cardsView.delegate = self
         dealthreeCardsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         newGameButton.titleLabel?.adjustsFontSizeToFitWidth = true
         cheatButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -47,8 +49,9 @@ class ViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             button.layer.cornerRadius = 8.0
         }
-        for index in visibleCardButtons.indices {
+        for index in 0...11 {
             visibleCardButtons[index].layer.cornerRadius = 8.0
+            cardsView.addCardToView()
             setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
         }
         
@@ -79,6 +82,13 @@ class ViewController: UIViewController {
             newNonVisiblebuttons.append(buttonToMove)
             clearViewForButton(button: buttonToMove)
         }
+        cardsView.clearViews()
+
+        for index in 0...11 {
+            visibleCardButtons[index].layer.cornerRadius = 8.0
+            cardsView.addCardToView()
+            setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
+        }
         updateViewFromModel()
         for button in nonVisibleCardButtons {
             newNonVisiblebuttons.append(button)
@@ -91,17 +101,9 @@ class ViewController: UIViewController {
     @IBAction func touchDealThreeMoreCards(_ sender: Any) {
         let cardsSelectedMatch = game.selectedCardsMatched
         game.dealThreeMoreCards()
-        if cardsSelectedMatch == nil || cardsSelectedMatch == false {
-            for _ in 0...2 {
-                if visibleCardButtons.count < 24 {
-                    visibleCardButtons.append(nonVisibleCardButtons.remove(at: 0))
-                } else {
-                    break
-                }
-            }
-        }
+        
         updateViewFromModel()
-        if visibleCardButtons.count == 24 || game.deck.count == 0 {
+        if game.deck.count == 0 {
             dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
         }
     }
@@ -112,12 +114,17 @@ class ViewController: UIViewController {
             for index in possibleMatch.arrayOfMatchedCards!{
                 visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
             }
+            
+            for index in possibleMatch.arrayOfMatchedCards!{
+                cardsView.cardButtons[index].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            }
         }
     }
     private func updateViewFromModel(){
-       scoreLabel.text = "Score: \(game.score)"
+        scoreLabel.text = "Score: \(game.score)"
         for index in visibleCardButtons.indices {
             updateViewForCard(index: index)
+            updateViewForCard(button: cardsView.cardButtons[index], index: index)
         }
     }
     private func updateViewForCard(index: Int) {
@@ -142,6 +149,10 @@ class ViewController: UIViewController {
     }
 }
 extension ViewController: SetGameDelegate {
+    func dealtCard(didDealt: Bool) {
+        visibleCardButtons.append(nonVisibleCardButtons.remove(at: 0))
+        cardsView.addCardToView()
+    }
     func gameOver() {
         whoWonLabel.text = "\(whoWonString)"
         cheatButton.setTitle("", for: UIControl.State.normal)
@@ -152,8 +163,12 @@ extension ViewController: SetGameDelegate {
         if match != nil {
             for index in match! {
                 visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+                cardsView.cardButtons[index].backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             }
             for button in visibleCardButtons {
+                button.isEnabled = false
+            }
+            for button in cardsView.cardButtons {
                 button.isEnabled = false
             }
             Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(selector), userInfo: nil, repeats: false)
@@ -165,14 +180,37 @@ extension ViewController: SetGameDelegate {
         for button in visibleCardButtons {
             button.isEnabled = true
         }
+        for button  in cardsView.cardButtons {
+            button.isEnabled = true
+        }
     }
-    
     func setOpponentState(data: OpponentState) {
         opponentState = data.stateToEmoji()
     }
-    
-    
-    
+}
+
+extension ViewController: BoardOfCardsDelegate {
+    func updateViewForCard(button: UIButton, index:Int) {
+        if index < game.cardsOnBoard.count {
+            let card = game.cardsOnBoard[index]
+            if !game.selectedCards.contains(card) {
+                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            } else {
+                button.backgroundColor = game.selectedCards.count == 3 ?
+                    game.selectedCardsMatched! ? #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) : #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                    :#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.3732074058)
+            }
+            setTextInCard(button: button, card: game.cardsOnBoard[index])
+        } else {
+            clearViewForButton(button: visibleCardButtons[index])
+        }
+    }
+    func touchedCard(cardButton: UIButton, index: Int)  {
+        game.selectCard(at: index)
+        for currentIndex in cardsView.cardButtons.indices {
+            updateViewForCard(button: cardsView.cardButtons[currentIndex], index: currentIndex)
+        }
+    }
 }
 
 

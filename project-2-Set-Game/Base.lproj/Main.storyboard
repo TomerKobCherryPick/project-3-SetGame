@@ -320,6 +320,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-JD-H1t" customClass="BoardOfCardsView" customModule="SetGame" customModuleProvider="target">
+                                <rect key="frame" x="80" y="407" width="270" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -340,6 +345,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardsView" destination="Bgo-JD-H1t" id="f3M-Zv-TjT"/>
                         <outlet property="cheatButton" destination="YpT-I1-7DM" id="Wkf-9D-C1X"/>
                         <outlet property="dealthreeCardsButton" destination="BO7-IE-LLm" id="pZ5-kg-TY8"/>
                         <outlet property="iphoneScoreLabel" destination="elV-yE-KEp" id="kSw-t6-brf"/>
@@ -374,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.23188405797103" y="133.25892857142856"/>
         </scene>
     </scenes>
 </document>

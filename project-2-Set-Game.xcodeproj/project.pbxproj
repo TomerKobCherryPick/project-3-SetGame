@@ -13,6 +13,13 @@
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
 		D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */; };
+		D3ECEA35221EA39B0009664A /* BoardOfCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */; };
+		D3ECEA37221EA4140009664A /* cardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ECEA36221EA4140009664A /* cardView.xib */; };
+		D3ECEA3F221EA6A40009664A /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECEA3E221EA6A40009664A /* Grid.swift */; };
+		D3ECEA43221EA7450009664A /* BoardOfCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECEA42221EA7450009664A /* BoardOfCardsView.swift */; };
+		D3ECEA45221EB3B40009664A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECEA44221EB3B40009664A /* CardView.swift */; };
+		D3ECEA47221EE9E10009664A /* BoardOfCardsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECEA46221EE9E10009664A /* BoardOfCardsDelegate.swift */; };
+		D3ECEA49221EEF980009664A /* CardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECEA48221EEF980009664A /* CardDelegate.swift */; };
 		D3F10CD52215539E001623E4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD32215539D001623E4 /* Card.swift */; };
 		D3F10CD62215539E001623E4 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD42215539E001623E4 /* SetGame.swift */; };
 		D3F10CDE22155430001623E4 /* project_2_Set_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */; };
@@ -39,6 +46,13 @@
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameDelegate.swift; sourceTree = "<group>"; };
+		D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardOfCardsView.xib; sourceTree = "<group>"; };
+		D3ECEA36221EA4140009664A /* cardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cardView.xib; sourceTree = "<group>"; };
+		D3ECEA3E221EA6A40009664A /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		D3ECEA42221EA7450009664A /* BoardOfCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardOfCardsView.swift; sourceTree = "<group>"; };
+		D3ECEA44221EB3B40009664A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D3ECEA46221EE9E10009664A /* BoardOfCardsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardOfCardsDelegate.swift; sourceTree = "<group>"; };
+		D3ECEA48221EEF980009664A /* CardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDelegate.swift; sourceTree = "<group>"; };
 		D3F10CD32215539D001623E4 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D3F10CD42215539E001623E4 /* SetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		D3F10CDB22155430001623E4 /* project-2-Set-GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-2-Set-GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				D33A94C82213299300EF1907 /* Supporting Files */,
+				D3ECEA3E221EA6A40009664A /* Grid.swift */,
+				D3ECEA44221EB3B40009664A /* CardView.swift */,
+				D3ECEA48221EEF980009664A /* CardDelegate.swift */,
+				D3ECEA36221EA4140009664A /* cardView.xib */,
+				D3ECEA42221EA7450009664A /* BoardOfCardsView.swift */,
+				D3ECEA46221EE9E10009664A /* BoardOfCardsDelegate.swift */,
+				D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */,
 				D33A94B52213295D00EF1907 /* ViewController.swift */,
 				D3F10CE7221AD3E6001623E4 /* Fill.swift */,
 				D3F10CD42215539E001623E4 /* SetGame.swift */,
@@ -202,6 +223,8 @@
 			files = (
 				D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */,
 				D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */,
+				D3ECEA35221EA39B0009664A /* BoardOfCardsView.xib in Resources */,
+				D3ECEA37221EA4140009664A /* cardView.xib in Resources */,
 				D33A94B92213295D00EF1907 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,9 +246,14 @@
 				D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */,
 				D33A94B62213295D00EF1907 /* ViewController.swift in Sources */,
 				D3F10CD62215539E001623E4 /* SetGame.swift in Sources */,
+				D3ECEA47221EE9E10009664A /* BoardOfCardsDelegate.swift in Sources */,
+				D3ECEA3F221EA6A40009664A /* Grid.swift in Sources */,
+				D3ECEA43221EA7450009664A /* BoardOfCardsView.swift in Sources */,
+				D3ECEA49221EEF980009664A /* CardDelegate.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
 				D3F10CD52215539E001623E4 /* Card.swift in Sources */,
 				D3F10CE8221AD3E6001623E4 /* Fill.swift in Sources */,
+				D3ECEA45221EB3B40009664A /* CardView.swift in Sources */,
 				D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
