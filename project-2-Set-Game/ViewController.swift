@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         }
         scoreLabel.text = "Score: \(game.score)"
     }
-    @objc func swipeDealThreeMoreCards(_ recognizer: UISwipeGestureRecognizer) {
+    @objc private func swipeDealThreeMoreCards(_ recognizer: UISwipeGestureRecognizer) {
         game.dealThreeMoreCards()
         if game.deck.count == 0 {
             dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         scoreLabel.text = "Score: \(game.score)"
     }
     
-    @objc func rotateReshuffle(_ recognizer: UIRotationGestureRecognizer) {
+    @objc private func rotateReshuffle(_ recognizer: UIRotationGestureRecognizer) {
         game.reshuffle()
         for index in cardsView.cardButtons.indices {
             updateViewForCard(button: cardsView.cardButtons[index], index: index)

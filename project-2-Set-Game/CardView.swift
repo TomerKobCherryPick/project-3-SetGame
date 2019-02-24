@@ -36,7 +36,7 @@ class CardView: UIView {
         cardButton.layer.cornerRadius = 6.0
     }
     
-    @objc func tapCardButton(){
+    @objc private func tapCardButton(){
        delegate?.updateViewForCard(button: cardButton, index: index!)
     }
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class BoardOfCardsView: UIView {
-    var cardButtons = [UIButton]()
-    var delegate: BoardOfCardsDelegate?
+    private(set) var cardButtons = [UIButton]()
+    weak var delegate: BoardOfCardsDelegate?
     
     @IBOutlet var contentView: UIView!
     lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.5), frame: bounds)
