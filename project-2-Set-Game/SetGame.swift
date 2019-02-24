@@ -167,6 +167,21 @@ class SetGame {
             replaceMatchedCards(chosenCards: selectedCards)
         }
     }
+    
+    func reshuffle() {
+        stopTimers()
+        selectedCards = []
+        let numberOfCardsOnBoard = cardsOnBoard.count
+        while !cardsOnBoard.isEmpty {
+            deck.append(cardsOnBoard.remove(at: 0))
+        }
+        deck.shuffle()
+        for _ in 0..<numberOfCardsOnBoard {
+             cardsOnBoard.append(deck.remove(at: 0))
+        }
+        setOppnentTimer()
+    }
+    
     private func createDeck(){
         for shape in 0...2 {
             for fill in 0...2 {

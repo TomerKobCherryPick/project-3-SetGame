@@ -10,7 +10,12 @@ import UIKit
 
 class CardView: UIView {
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var cardButton: UIButton!
+    @IBOutlet weak var cardButton: UIButton!{
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapCardButton))
+            cardButton.addGestureRecognizer(tapGesture)
+        }
+    }
     weak var delegate: CardDelegate?
     var index: Int?
     
@@ -30,8 +35,8 @@ class CardView: UIView {
         cardButton.titleLabel?.adjustsFontSizeToFitWidth = true
         cardButton.layer.cornerRadius = 6.0
     }
-    @IBAction func touchCard(_ sender: UIButton) {
-        delegate?.updateViewForCard(button: sender, index: index!)
+    
+    @objc func tapCardButton(){
+       delegate?.updateViewForCard(button: cardButton, index: index!)
     }
-
 }

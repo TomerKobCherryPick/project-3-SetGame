@@ -25,12 +25,8 @@
                     <rect key="frame" x="19" y="43.5" width="337.5" height="600"/>
                     <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <connections>
-                        <action selector="touchCard:" destination="-1" eventType="touchUpInside" id="iLx-Uw-lBo"/>
-                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LbI-9k-ilt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="Cwc-2F-yxb"/>
                 <constraint firstItem="LbI-9k-ilt" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="G3t-v8-py8"/>

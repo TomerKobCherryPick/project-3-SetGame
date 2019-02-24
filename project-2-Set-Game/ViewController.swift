@@ -20,6 +20,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var iphoneScoreLabel: UILabel!
     @IBOutlet weak var whoWonLabel: UILabel!
     @IBOutlet weak var cardsView: BoardOfCardsView!
+    @IBOutlet weak var contentView: UIView! {
+        didSet {
+            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeDealThreeMoreCards))
+            swipeGesture.direction = .down
+            contentView.addGestureRecognizer(swipeGesture)
+            
+            let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotateReshuffle))
+            contentView.addGestureRecognizer(rotationGesture)
+        }
+    }
     var opponentState: String {
         get {
             return game.opponentState.stateToEmoji()
@@ -44,6 +54,7 @@ class ViewController: UIViewController {
         whoWonLabel.text = ""
         iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
         cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        
         for _ in 0...11 {
             cardsView.addCardToView()
         }
@@ -59,12 +70,12 @@ class ViewController: UIViewController {
         let attributedString = NSAttributedString(string: shape, attributes: Fill.convertToNSAttributedStringKeys(fillType: fill, color: color))
         button.setAttributedTitle(attributedString, for: UIControl.State.normal)
     }
-   
+    
     @IBAction func touchNewGame(_ sender: Any) {
         game.resetGame()
         cardsView.clearViews()
         for _ in 0...11 {
-           cardsView.addCardToView()
+            cardsView.addCardToView()
         }
         dealthreeCardsButton.setTitle("Deal 3 more Cards", for: UIControl.State.normal)
         cheatButton.setTitle("Cheat", for: UIControl.State.normal)
@@ -78,6 +89,21 @@ class ViewController: UIViewController {
         }
         scoreLabel.text = "Score: \(game.score)"
     }
+    @objc func swipeDealThreeMoreCards(_ recognizer: UISwipeGestureRecognizer) {
+        game.dealThreeMoreCards()
+        if game.deck.count == 0 {
+            dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
+        }
+        scoreLabel.text = "Score: \(game.score)"
+    }
+    
+    @objc func rotateReshuffle(_ recognizer: UIRotationGestureRecognizer) {
+        game.reshuffle()
+        for index in cardsView.cardButtons.indices {
+            updateViewForCard(button: cardsView.cardButtons[index], index: index)
+        }
+    }
+    
     @IBAction func touchCheat(_ sender: Any) {
         updateViewFromModel()
         let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
@@ -93,7 +119,7 @@ class ViewController: UIViewController {
             updateViewForCard(button: cardsView.cardButtons[index], index: index)
         }
     }
-   
+    
     private func clearViewForButton(button: UIButton) {
         button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
         let attributedString = NSAttributedString(string: "", attributes: [:])

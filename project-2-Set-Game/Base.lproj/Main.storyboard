@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,13 +22,13 @@
                                 <rect key="frame" x="80" y="727" width="254" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whoWonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N25-qM-rbS">
-                                        <rect key="frame" x="35.666666666666671" y="0.0" width="183" height="24"/>
+                                        <rect key="frame" x="35.5" y="0.0" width="183" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INO-06-cD0">
-                                        <rect key="frame" x="55.666666666666657" y="32" width="143" height="24"/>
+                                        <rect key="frame" x="55.5" y="32" width="143" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-I1-7DM">
-                                        <rect key="frame" x="87.666666666666657" y="64" width="79" height="24"/>
+                                        <rect key="frame" x="87.5" y="64" width="79" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Cheat">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO7-IE-LLm">
-                                        <rect key="frame" x="10.666666666666671" y="96" width="233" height="24"/>
+                                        <rect key="frame" x="10.5" y="96" width="233" height="24"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" adjustable="YES"/>
                                         </accessibility>
@@ -65,49 +65,50 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="V1m-dt-vXt"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqX-kI-IM6">
-                                <rect key="frame" x="80" y="82" width="254" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PJl-6p-wci">
-                                <rect key="frame" x="80" y="42" width="254" height="36"/>
+                                <rect key="frame" x="80" y="42" width="254" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="iphone's Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elV-yE-KEp">
-                                        <rect key="frame" x="15.333333333333329" y="0.0" width="223.33333333333337" height="36"/>
+                                        <rect key="frame" x="15.5" y="0.0" width="223.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqX-kI-IM6">
+                                        <rect key="frame" x="73" y="36" width="108" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-JD-H1t" customClass="BoardOfCardsView" customModule="SetGame" customModuleProvider="target">
-                                <rect key="frame" x="30" y="132" width="354" height="585"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-JD-H1t" customClass="BoardOfCardsView" customModule="SetGame" customModuleProvider="target">
+                                <rect key="frame" x="20.5" y="134" width="373" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                </accessibility>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6G7-Ak-Ccp" firstAttribute="top" secondItem="Bgo-JD-H1t" secondAttribute="bottom" constant="20" id="0Em-sA-lkI"/>
                             <constraint firstItem="PJl-6p-wci" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="7uD-XU-Bj1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sqX-kI-IM6" secondAttribute="trailing" constant="80" id="KUj-A8-bMM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJl-6p-wci" secondAttribute="trailing" constant="80" id="LhO-JZ-1b8"/>
-                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="top" secondItem="sqX-kI-IM6" secondAttribute="top" constant="50" id="PmD-JU-hUR"/>
-                            <constraint firstItem="sqX-kI-IM6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="VTL-bw-aZQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6G7-Ak-Ccp" secondAttribute="bottom" constant="15" id="X68-Ba-VXJ"/>
-                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Xhh-79-ghr"/>
-                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="bottom" secondItem="6G7-Ak-Ccp" secondAttribute="bottom" constant="-130" id="caV-sp-Hcw"/>
+                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eEj-Od-jLx"/>
+                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="etf-OY-j9N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="top" constant="2" id="ffV-LQ-2Gf"/>
+                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="bottom" constant="20" id="i0V-HC-4lD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6G7-Ak-Ccp" secondAttribute="trailing" constant="80" id="j4o-Sq-K0a"/>
-                            <constraint firstItem="sqX-kI-IM6" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="top" constant="40" id="rzI-Dt-4ZV"/>
                             <constraint firstItem="6G7-Ak-Ccp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="sgY-SL-J1r"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bgo-JD-H1t" secondAttribute="trailing" constant="30" id="xAE-cj-xkC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cardsView" destination="Bgo-JD-H1t" id="f3M-Zv-TjT"/>
                         <outlet property="cheatButton" destination="YpT-I1-7DM" id="Wkf-9D-C1X"/>
+                        <outlet property="contentView" destination="8bC-Xf-vdC" id="g2k-aa-fnW"/>
                         <outlet property="dealthreeCardsButton" destination="BO7-IE-LLm" id="pZ5-kg-TY8"/>
                         <outlet property="iphoneScoreLabel" destination="elV-yE-KEp" id="kSw-t6-brf"/>
                         <outlet property="newGameButton" destination="INO-06-cD0" id="sUK-MI-ra0"/>
