@@ -43,7 +43,7 @@ class SetGame {
     }
     private func resetDeckAndBoard(){
         createDeck()
-        //deck.shuffle()
+        deck.shuffle()
         dealMoreCards(cardsToDeal: 12)
     }
     
