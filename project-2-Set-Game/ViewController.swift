@@ -15,8 +15,6 @@ class ViewController: UIViewController {
     private lazy var game = SetGame()
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var dealthreeCardsButton: UIButton!
-    @IBOutlet var nonVisibleCardButtons: [UIButton]!
-    @IBOutlet var visibleCardButtons: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var cheatButton: UIButton!
     @IBOutlet weak var iphoneScoreLabel: UILabel!
@@ -45,14 +43,9 @@ class ViewController: UIViewController {
         whoWonLabel.adjustsFontSizeToFitWidth = true
         whoWonLabel.text = ""
         iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
-        for button in nonVisibleCardButtons {
-            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-            button.layer.cornerRadius = 8.0
-        }
-        for index in 0...11 {
-            visibleCardButtons[index].layer.cornerRadius = 8.0
+        cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        for _ in 0...11 {
             cardsView.addCardToView()
-            setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
         }
         
     }
@@ -66,55 +59,29 @@ class ViewController: UIViewController {
         let attributedString = NSAttributedString(string: shape, attributes: Fill.convertToNSAttributedStringKeys(fillType: fill, color: color))
         button.setAttributedTitle(attributedString, for: UIControl.State.normal)
     }
-    @IBAction func touchCard(_ sender: UIButton) {
-        if visibleCardButtons.contains(sender) {
-            game.selectCard(at: visibleCardButtons.index(of: sender)!)
-        } else {
-            print("chosen card wasn't in visibleCardButtons")
-        }
-        updateViewFromModel()
-    }
+   
     @IBAction func touchNewGame(_ sender: Any) {
         game.resetGame()
-        var newNonVisiblebuttons = [UIButton]()
-        while visibleCardButtons.count > 12 {
-            let buttonToMove = visibleCardButtons.remove(at: 12)
-            newNonVisiblebuttons.append(buttonToMove)
-            clearViewForButton(button: buttonToMove)
-        }
         cardsView.clearViews()
-
-        for index in 0...11 {
-            visibleCardButtons[index].layer.cornerRadius = 8.0
-            cardsView.addCardToView()
-            setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
+        for _ in 0...11 {
+           cardsView.addCardToView()
         }
-        updateViewFromModel()
-        for button in nonVisibleCardButtons {
-            newNonVisiblebuttons.append(button)
-        }
-        nonVisibleCardButtons = newNonVisiblebuttons
         dealthreeCardsButton.setTitle("Deal 3 more Cards", for: UIControl.State.normal)
         cheatButton.setTitle("Cheat", for: UIControl.State.normal)
         whoWonLabel.text = ""
+        scoreLabel.text = "Score: \(game.score)"
     }
     @IBAction func touchDealThreeMoreCards(_ sender: Any) {
-        let cardsSelectedMatch = game.selectedCardsMatched
         game.dealThreeMoreCards()
-        
-        updateViewFromModel()
         if game.deck.count == 0 {
             dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
         }
+        scoreLabel.text = "Score: \(game.score)"
     }
     @IBAction func touchCheat(_ sender: Any) {
         updateViewFromModel()
         let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
         if possibleMatch.isMatched {
-            for index in possibleMatch.arrayOfMatchedCards!{
-                visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            }
-            
             for index in possibleMatch.arrayOfMatchedCards!{
                 cardsView.cardButtons[index].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
             }
@@ -122,26 +89,11 @@ class ViewController: UIViewController {
     }
     private func updateViewFromModel(){
         scoreLabel.text = "Score: \(game.score)"
-        for index in visibleCardButtons.indices {
-            updateViewForCard(index: index)
+        for index in game.cardsOnBoard.indices {
             updateViewForCard(button: cardsView.cardButtons[index], index: index)
         }
     }
-    private func updateViewForCard(index: Int) {
-        if index < game.cardsOnBoard.count {
-            let card = game.cardsOnBoard[index]
-            if !game.selectedCards.contains(card) {
-                visibleCardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            } else {
-                visibleCardButtons[index].backgroundColor = game.selectedCards.count == 3 ?
-                    game.selectedCardsMatched! ? #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) : #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-                    :#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.3732074058)
-            }
-            setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
-        } else {
-            clearViewForButton(button: visibleCardButtons[index])
-        }
-    }
+   
     private func clearViewForButton(button: UIButton) {
         button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
         let attributedString = NSAttributedString(string: "", attributes: [:])
@@ -150,23 +102,20 @@ class ViewController: UIViewController {
 }
 extension ViewController: SetGameDelegate {
     func dealtCard(didDealt: Bool) {
-        visibleCardButtons.append(nonVisibleCardButtons.remove(at: 0))
         cardsView.addCardToView()
+    }
+    func replacedCard(card: Card, index: Int) {
+        updateViewForCard(button: cardsView.cardButtons[index], index: index)
     }
     func gameOver() {
         whoWonLabel.text = "\(whoWonString)"
         cheatButton.setTitle("", for: UIControl.State.normal)
         dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
     }
-    
     func macthedIndicesIfExist(match: Array<Int>?) {
         if match != nil {
             for index in match! {
-                visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
                 cardsView.cardButtons[index].backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-            }
-            for button in visibleCardButtons {
-                button.isEnabled = false
             }
             for button in cardsView.cardButtons {
                 button.isEnabled = false
@@ -177,9 +126,6 @@ extension ViewController: SetGameDelegate {
     }
     @objc private func selector() {
         updateViewFromModel()
-        for button in visibleCardButtons {
-            button.isEnabled = true
-        }
         for button  in cardsView.cardButtons {
             button.isEnabled = true
         }
@@ -202,7 +148,7 @@ extension ViewController: BoardOfCardsDelegate {
             }
             setTextInCard(button: button, card: game.cardsOnBoard[index])
         } else {
-            clearViewForButton(button: visibleCardButtons[index])
+            clearViewForButton(button: button)
         }
     }
     func touchedCard(cardButton: UIButton, index: Int)  {
@@ -210,6 +156,7 @@ extension ViewController: BoardOfCardsDelegate {
         for currentIndex in cardsView.cardButtons.indices {
             updateViewForCard(button: cardsView.cardButtons[currentIndex], index: currentIndex)
         }
+        scoreLabel.text = "Score: \(game.score)"
     }
 }
 

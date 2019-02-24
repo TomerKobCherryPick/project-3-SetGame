@@ -12,12 +12,7 @@ class BoardOfCardsView: UIView {
     var cardButtons = [UIButton]()
     var delegate: BoardOfCardsDelegate?
     
-    @IBOutlet var contentView: UIView!  {
-        didSet {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(addCardToView))
-            contentView.addGestureRecognizer(tapGesture)
-        }
-    }
+    @IBOutlet var contentView: UIView!
     lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.5), frame: bounds)
     
     override init(frame: CGRect) {
@@ -44,7 +39,7 @@ class BoardOfCardsView: UIView {
         
     }
     
-    @objc func addCardToView() {
+     func addCardToView() {
         grid.cellCount += 1
         let currentIndex = grid.cellCount - 1
         let cardView = CardView(frame: grid[currentIndex]!)
@@ -62,7 +57,6 @@ class BoardOfCardsView: UIView {
 extension BoardOfCardsView: CardDelegate{
     func updateViewForCard(button: UIButton, index: Int) {
         delegate?.touchedCard(cardButton: button, index: index)
-       delegate?.updateViewForCard(button: button, index: index)
     }
     
     

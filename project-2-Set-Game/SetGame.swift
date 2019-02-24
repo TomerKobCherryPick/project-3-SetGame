@@ -13,7 +13,7 @@ class SetGame {
     private(set) var deck = [Card]()
     private(set) var cardsOnBoard = [Card]()
     private(set) var selectedCardsMatched: Bool?
-    private(set) var score = 0
+    private(set) var score = 0 
     private var timeWhenGameStarted = Date.init()
     private(set) var opponentState = OpponentState.notWaitingForTurn
     private(set) var opponentScore = 0
@@ -27,6 +27,7 @@ class SetGame {
         setOppnentTimer()
     }
     func resetGame() {
+        stopTimers()
         isGameOver = false
         selectedCards =  [Card]()
         cardsOnBoard = [Card]()
@@ -38,7 +39,6 @@ class SetGame {
         opponentScore = 0
         opponentState = OpponentState.notWaitingForTurn
         self.delegate?.setOpponentState(data:  self.opponentState)
-        stopTimers()
         setOppnentTimer()
     }
     private func resetDeckAndBoard(){
@@ -99,6 +99,7 @@ class SetGame {
                 if deck.count > 0 {
                     let newCard = deck.remove(at: 0)
                     cardsOnBoard[indexOfCard] = newCard
+                    delegate?.replacedCard(card: newCard, index: indexOfCard)
                 } else {
                     cardsOnBoard.remove(at: indexOfCard)
                 }
@@ -215,9 +216,7 @@ class SetGame {
     }
     private func stopTimers() {
         opponentCycleTimer?.invalidate()
-        opponentCycleTimer?.invalidate()
         opponentWaitTimer?.invalidate()
-        opponentDoesntWaitForTurnTimer?.invalidate()
         opponentReadyToMakeAMoveTimer?.invalidate()
         opponentMakesAMoveTimer?.invalidate()
         opponentDoesntWaitForTurnTimer?.invalidate()

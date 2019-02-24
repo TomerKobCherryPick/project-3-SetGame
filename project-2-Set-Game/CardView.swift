@@ -33,13 +33,5 @@ class CardView: UIView {
     @IBAction func touchCard(_ sender: UIButton) {
         delegate?.updateViewForCard(button: sender, index: index!)
     }
-   
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

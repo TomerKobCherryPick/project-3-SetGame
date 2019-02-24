@@ -13,4 +13,6 @@ protocol SetGameDelegate: class {
     func macthedIndicesIfExist(match: Array<Int>?)
     func gameOver()
     func dealtCard(didDealt: Bool)
+    func replacedCard(card: Card, index: Int)
+    
 }
