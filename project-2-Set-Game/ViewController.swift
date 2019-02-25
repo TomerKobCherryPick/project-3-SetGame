@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: VCLLoggingViewController {
     private let intToShapeMap = [0: "▲", 1: "●", 2: "■"]
     private let intToColorMap = [0: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) , 1: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1) , 2: #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)]
     private let intToFillMap = [0: Fill.stripe, 1: Fill.filled, 2: Fill.outlined]
@@ -54,11 +54,15 @@ class ViewController: UIViewController {
         whoWonLabel.text = ""
         iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
         cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-        
-        for _ in 0...11 {
-            cardsView.addCardToView()
+
+    }
+    override func viewDidLayoutSubviews() {
+        cardsView.updateFrame()
+        if cardsView.cardButtons.count == 0 && !game.isGameOver {
+            for _ in 0...11 {
+                cardsView.addCardToView()
+            }
         }
-        
     }
     private func setTextInCard(button: UIButton, card: Card) {
         var shape = intToShapeMap[card.attributes[0]]!

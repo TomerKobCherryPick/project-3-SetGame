@@ -12,6 +12,7 @@
 		D33A94B92213295D00EF1907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94B72213295D00EF1907 /* Main.storyboard */; };
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
+		D343F13B222419E8003DB568 /* VCLLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D343F13A222419E8003DB568 /* VCLLoggingViewController.swift */; };
 		D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */; };
 		D3ECEA35221EA39B0009664A /* BoardOfCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */; };
 		D3ECEA37221EA4140009664A /* cardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ECEA36221EA4140009664A /* cardView.xib */; };
@@ -45,6 +46,7 @@
 		D33A94BD2213295E00EF1907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D343F13A222419E8003DB568 /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCLLoggingViewController.swift; path = ../../../../../../Downloads/VCLLoggingViewController.swift; sourceTree = "<group>"; };
 		D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameDelegate.swift; sourceTree = "<group>"; };
 		D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardOfCardsView.xib; sourceTree = "<group>"; };
 		D3ECEA36221EA4140009664A /* cardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cardView.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		D33A94C82213299300EF1907 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D343F13A222419E8003DB568 /* VCLLoggingViewController.swift */,
 				D33A94B32213295D00EF1907 /* AppDelegate.swift */,
 				D33A94BD2213295E00EF1907 /* Assets.xcassets */,
 				D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */,
@@ -252,6 +255,7 @@
 				D3ECEA49221EEF980009664A /* CardDelegate.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
 				D3F10CD52215539E001623E4 /* Card.swift in Sources */,
+				D343F13B222419E8003DB568 /* VCLLoggingViewController.swift in Sources */,
 				D3F10CE8221AD3E6001623E4 /* Fill.swift in Sources */,
 				D3ECEA45221EB3B40009664A /* CardView.swift in Sources */,
 				D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */,

@@ -13,7 +13,7 @@ class BoardOfCardsView: UIView {
     weak var delegate: BoardOfCardsDelegate?
     
     @IBOutlet var contentView: UIView!
-    lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.5), frame: bounds)
+    lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.5), frame: self.bounds)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,12 @@ class BoardOfCardsView: UIView {
             view.removeFromSuperview()
         }
         grid.cellCount = 0
-        
+    }
+    func updateFrame() {
+        grid.frame = self.bounds
+        for index in contentView.subviews.indices {
+            contentView.subviews[index].frame = grid[index]!
+        }
     }
     
      func addCardToView() {
