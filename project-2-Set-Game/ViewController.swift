@@ -54,7 +54,6 @@ class ViewController: VCLLoggingViewController {
         whoWonLabel.text = ""
         iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
         cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-
     }
     override func viewDidLayoutSubviews() {
         cardsView.updateFrame()

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,40 +16,49 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SetGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6G7-Ak-Ccp">
-                                <rect key="frame" x="80" y="727" width="254" height="120"/>
+                                <rect key="frame" x="124" y="336" width="648" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whoWonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N25-qM-rbS">
-                                        <rect key="frame" x="35.5" y="0.0" width="183" height="24"/>
+                                        <rect key="frame" x="0.0" y="6" width="153" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INO-06-cD0">
-                                        <rect key="frame" x="55.5" y="32" width="143" height="24"/>
+                                        <rect key="frame" x="191" y="0.0" width="120" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        </variation>
                                         <connections>
                                             <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9IT-ri-veb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-I1-7DM">
-                                        <rect key="frame" x="87.5" y="64" width="79" height="24"/>
+                                        <rect key="frame" x="349" y="0.0" width="66" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Cheat">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        </variation>
                                         <connections>
                                             <action selector="touchCheat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1p-4K-FJO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO7-IE-LLm">
-                                        <rect key="frame" x="10.5" y="96" width="233" height="24"/>
+                                        <rect key="frame" x="453" y="0.0" width="195" height="42"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" adjustable="YES"/>
                                         </accessibility>
@@ -56,6 +66,9 @@
                                         <state key="normal" title="Deal 3 more cards">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        </variation>
                                         <connections>
                                             <action selector="touchDealThreeMoreCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nIQ-9a-VQj"/>
                                         </connections>
@@ -64,26 +77,34 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="V1m-dt-vXt"/>
                                 </constraints>
+                                <variation key="heightClass=compact" axis="horizontal" distribution="equalSpacing" spacingType="standard"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PJl-6p-wci">
-                                <rect key="frame" x="80" y="42" width="254" height="72"/>
+                                <rect key="frame" x="124" y="9.9999999999999982" width="648" height="26.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="iphone's Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elV-yE-KEp">
-                                        <rect key="frame" x="15.5" y="0.0" width="223.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="26.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqX-kI-IM6">
-                                        <rect key="frame" x="73" y="36" width="108" height="36"/>
+                                        <rect key="frame" x="324" y="0.0" width="324" height="26.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        </variation>
                                     </label>
                                 </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Bgo-JD-H1t" customClass="BoardOfCardsView" customModule="SetGame" customModuleProvider="target">
-                                <rect key="frame" x="20.5" y="134" width="373" height="573"/>
+                                <rect key="frame" x="44.666666666666686" y="36.333333333333343" width="806.66666666666652" height="299.66666666666663"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" adjustable="YES"/>
@@ -92,14 +113,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6G7-Ak-Ccp" firstAttribute="top" secondItem="Bgo-JD-H1t" secondAttribute="bottom" constant="20" id="0Em-sA-lkI"/>
+                            <constraint firstItem="6G7-Ak-Ccp" firstAttribute="top" secondItem="Bgo-JD-H1t" secondAttribute="bottom" constant="10" id="0Em-sA-lkI">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="PJl-6p-wci" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="7uD-XU-Bj1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJl-6p-wci" secondAttribute="trailing" constant="80" id="LhO-JZ-1b8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6G7-Ak-Ccp" secondAttribute="bottom" constant="15" id="X68-Ba-VXJ"/>
                             <constraint firstItem="Bgo-JD-H1t" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eEj-Od-jLx"/>
                             <constraint firstItem="Bgo-JD-H1t" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="etf-OY-j9N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="top" constant="2" id="ffV-LQ-2Gf"/>
-                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="bottom" constant="20" id="i0V-HC-4lD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="top" constant="2" id="ffV-LQ-2Gf">
+                                <variation key="heightClass=compact" constant="-10"/>
+                            </constraint>
+                            <constraint firstItem="Bgo-JD-H1t" firstAttribute="top" secondItem="PJl-6p-wci" secondAttribute="bottom" id="i0V-HC-4lD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6G7-Ak-Ccp" secondAttribute="trailing" constant="80" id="j4o-Sq-K0a"/>
                             <constraint firstItem="6G7-Ak-Ccp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="sgY-SL-J1r"/>
                         </constraints>
