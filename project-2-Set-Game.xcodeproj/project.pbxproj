@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B32213295D00EF1907 /* AppDelegate.swift */; };
-		D33A94B62213295D00EF1907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B52213295D00EF1907 /* ViewController.swift */; };
+		D33A94B62213295D00EF1907 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B52213295D00EF1907 /* SetGameViewController.swift */; };
 		D33A94B92213295D00EF1907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94B72213295D00EF1907 /* Main.storyboard */; };
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
@@ -46,17 +46,12 @@
 /* Begin PBXFileReference section */
 		D33A94B02213295D00EF1907 /* SetGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33A94B32213295D00EF1907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D33A94B52213295D00EF1907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D33A94B52213295D00EF1907 /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
 		D33A94B82213295D00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D33A94BD2213295E00EF1907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D343F13A222419E8003DB568 /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCLLoggingViewController.swift; path = ../../../../../../Downloads/VCLLoggingViewController.swift; sourceTree = "<group>"; };
-		D343F1452225487A003DB568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D343F1472225487A003DB568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D343F1492225487A003DB568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D343F14A2225487A003DB568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D343F14B2225487A003DB568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D343F15022255822003DB568 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
 		D343F15122255822003DB568 /* ConcentrationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCard.swift; sourceTree = "<group>"; };
 		D343F15222255823003DB568 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
@@ -148,7 +143,7 @@
 				D3ECEA42221EA7450009664A /* BoardOfCardsView.swift */,
 				D3ECEA46221EE9E10009664A /* BoardOfCardsDelegate.swift */,
 				D3ECEA34221EA39B0009664A /* BoardOfCardsView.xib */,
-				D33A94B52213295D00EF1907 /* ViewController.swift */,
+				D33A94B52213295D00EF1907 /* SetGameViewController.swift */,
 				D3F10CE7221AD3E6001623E4 /* Fill.swift */,
 				D3F10CD42215539E001623E4 /* SetGame.swift */,
 				D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */,
@@ -166,22 +161,9 @@
 				D343F15022255822003DB568 /* ConcentrationThemeChooserViewController.swift */,
 				D343F15322255823003DB568 /* ConcentrationViewController.swift */,
 				D343F15822257E0D003DB568 /* ThemeNameToIndex.swift */,
-				D343F1442225487A003DB568 /* Main.storyboard */,
-				D343F1462225487A003DB568 /* Supporting Files */,
-				D343F14B2225487A003DB568 /* Info.plist */,
 			);
 			name = Concentration;
 			path = "project-2-Set-Game/Concentration";
-			sourceTree = "<group>";
-		};
-		D343F1462225487A003DB568 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D343F1472225487A003DB568 /* Assets.xcassets */,
-				D343F1482225487A003DB568 /* LaunchScreen.storyboard */,
-				D343F14A2225487A003DB568 /* AppDelegate.swift */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D3F10CDC22155430001623E4 /* project-2-Set-GameTests */ = {
@@ -301,7 +283,7 @@
 				D343F15622255823003DB568 /* Concentration.swift in Sources */,
 				D343F15722255823003DB568 /* ConcentrationViewController.swift in Sources */,
 				D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */,
-				D33A94B62213295D00EF1907 /* ViewController.swift in Sources */,
+				D33A94B62213295D00EF1907 /* SetGameViewController.swift in Sources */,
 				D343F15922257E0D003DB568 /* ThemeNameToIndex.swift in Sources */,
 				D3F10CD62215539E001623E4 /* SetGame.swift in Sources */,
 				D3ECEA47221EE9E10009664A /* BoardOfCardsDelegate.swift in Sources */,
@@ -348,22 +330,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				D33A94C02213295E00EF1907 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D343F1442225487A003DB568 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D343F1452225487A003DB568 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D343F1482225487A003DB568 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D343F1492225487A003DB568 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
