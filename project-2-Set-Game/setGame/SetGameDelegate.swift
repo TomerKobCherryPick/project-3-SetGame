@@ -12,4 +12,7 @@ protocol SetGameDelegate: class {
     func setOpponentState(data: OpponentState)
     func macthedIndicesIfExist(match: Array<Int>?)
     func gameOver()
+    func dealtCard(didDealt: Bool)
+    func replacedCard(card: setGameCard, index: Int)
+    
 }

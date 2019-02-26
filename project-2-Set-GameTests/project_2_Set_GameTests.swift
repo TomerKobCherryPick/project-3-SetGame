@@ -22,23 +22,23 @@ class project_2_Set_GameTests: XCTestCase {
     }
     
     func testMatchingCardsByDifferentAttributes() {
-        let card1 = Card(shape: 0, fill: 0, color: 0, number: 0)
-        let card2 = Card(shape: 1, fill: 1, color: 1, number: 1)
-        let card3 = Card(shape: 2, fill: 2, color: 2, number: 2)
+        let card1 = setGameCard(shape: 0, fill: 0, color: 0, number: 0)
+        let card2 = setGameCard(shape: 1, fill: 1, color: 1, number: 1)
+        let card3 = setGameCard(shape: 2, fill: 2, color: 2, number: 2)
         XCTAssertTrue(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
     func testMatchingCardsBySameAttributes() {
-        let card1 = Card(shape: 0, fill: 1, color: 2, number: 0)
-        let card2 = Card(shape: 0, fill: 1, color: 2, number: 1)
-        let card3 = Card(shape: 0, fill: 1, color: 2, number: 2)
+        let card1 = setGameCard(shape: 0, fill: 1, color: 2, number: 0)
+        let card2 = setGameCard(shape: 0, fill: 1, color: 2, number: 1)
+        let card3 = setGameCard(shape: 0, fill: 1, color: 2, number: 2)
         XCTAssertTrue(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
     func testNonMatchingCards() {
-        let card1 = Card(shape: 1, fill: 1, color: 2, number: 0)
-        let card2 = Card(shape: 0, fill: 1, color: 2, number: 1)
-        let card3 = Card(shape: 0, fill: 1, color: 2, number: 2)
+        let card1 = setGameCard(shape: 1, fill: 1, color: 2, number: 0)
+        let card2 = setGameCard(shape: 0, fill: 1, color: 2, number: 1)
+        let card3 = setGameCard(shape: 0, fill: 1, color: 2, number: 2)
         XCTAssertFalse(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
@@ -57,7 +57,7 @@ class project_2_Set_GameTests: XCTestCase {
     }
     
     func testReplaceMatchedCardsWhenDeckIsEmpty() {
-        var chosenCards:Array<Card>
+        var chosenCards:Array<setGameCard>
         game.setDeck(newDeck: [])
         chosenCards = [
             game.cardsOnBoard[0],
@@ -88,7 +88,7 @@ class project_2_Set_GameTests: XCTestCase {
         XCTAssertTrue(game.selectedCards.elementsEqual(cardToSelect))
     }
     func testSelectCardWhenTwoCardsAreSelectedAndMatch() {
-        var cardToSelect: [Card]
+        var cardToSelect: [setGameCard]
         game.createNonShuffledDeckForTest()
         game.setCardsOnBoard(newCardsOnBoard: [])
         game.dealTwelveCardsForTest()
@@ -105,7 +105,7 @@ class project_2_Set_GameTests: XCTestCase {
     }
     
     func testSelectCardWhenTwoCardsAreSelectedAndDontMatch() {
-        var cardToSelect: [Card]
+        var cardToSelect: [setGameCard]
         game.createNonShuffledDeckForTest()
         game.setCardsOnBoard(newCardsOnBoard: [])
         game.dealTwelveCardsForTest()
@@ -121,8 +121,8 @@ class project_2_Set_GameTests: XCTestCase {
         XCTAssertTrue(game.selectedCards.elementsEqual(cardToSelect) && game.selectedCardsMatched == false)
     }
     func testSelectCardWhenThreeCardsAreMatchedAlready() {
-        let cardsToReplace: Array<Card>
-        let cardToChoose: Card
+        let cardsToReplace: Array<setGameCard>
+        let cardToChoose: setGameCard
         game.createNonShuffledDeckForTest()
         game.setCardsOnBoard(newCardsOnBoard: [])
         game.dealTwelveCardsForTest()
@@ -147,8 +147,8 @@ class project_2_Set_GameTests: XCTestCase {
         
     }
     func testSelectCardWhenThreeCardsAreNotMacthedAlready() {
-        let cardsToReplace: Array<Card>
-        let cardToChoose: Card
+        let cardsToReplace: Array<setGameCard>
+        let cardToChoose: setGameCard
         game.createNonShuffledDeckForTest()
         game.setCardsOnBoard(newCardsOnBoard: [])
         game.dealTwelveCardsForTest()
@@ -174,7 +174,7 @@ class project_2_Set_GameTests: XCTestCase {
     }
     
     func testSelectCardWhenThisCardHaveBeenAlreadySelected() {
-        let cardToChoose: Card
+        let cardToChoose: setGameCard
         game.createNonShuffledDeckForTest()
         game.setCardsOnBoard(newCardsOnBoard: [])
         game.dealTwelveCardsForTest()

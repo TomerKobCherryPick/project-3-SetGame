@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Card {
+struct setGameCard {
     let attributes: [Int]
     init(shape: Int, fill: Int, color: Int, number: Int){
         attributes = [shape, fill, color, number]
     }
 }
 
-extension Card: Equatable {
-    static func == (lhs: Card, rhs: Card) -> Bool {
+extension setGameCard: Equatable {
+    static func == (lhs: setGameCard, rhs: setGameCard) -> Bool {
         for index in 0...3 {
             if lhs.attributes[index] != rhs.attributes[index] {
                 return false
