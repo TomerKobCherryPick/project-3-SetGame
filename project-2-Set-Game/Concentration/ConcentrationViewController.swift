@@ -50,15 +50,13 @@ class ConcentrationViewController: UIViewController {
                 view.backgroundColor = backgroundTheme
                 cardIdToEmojiMap  = [:]
                 updateViewFromModel()
+                navigationItem.title = ConcentrationThemeChooserViewController.themeNameToIndex[themeIndex!]
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if themeIndex != nil {
-           navigationItem.title = ConcentrationThemeChooserViewController.themeNameToIndex[themeIndex!]
-        }
         view.backgroundColor = backgroundTheme
         for button in cardButtons {
              button.layer.cornerRadius = 6.0

@@ -548,6 +548,7 @@
         <!--Concentration-->
         <scene sceneID="YO0-7a-9f9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbm-Cu-WDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <splitViewController id="8by-Yi-qu1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Concentration" id="u5U-w1-XrJ"/>
                     <connections>
@@ -555,12 +556,11 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="Su8-fs-A2X"/>
                     </connections>
                 </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbm-Cu-WDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1603" y="42"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dio-t4-zTr"/>
+        <segue reference="Su8-fs-A2X"/>
     </inferredMetricsTieBreakers>
 </document>
