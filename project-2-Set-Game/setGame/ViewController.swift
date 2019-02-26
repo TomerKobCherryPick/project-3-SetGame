@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: VCLLoggingViewController {
+class ViewController: UIViewController {
     private let intToShapeMap = [0: "▲", 1: "●", 2: "■"]
     private let intToColorMap = [0: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) , 1: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1) , 2: #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)]
     private let intToFillMap = [0: Fill.stripe, 1: Fill.filled, 2: Fill.outlined]
@@ -53,7 +53,7 @@ class ViewController: VCLLoggingViewController {
         whoWonLabel.adjustsFontSizeToFitWidth = true
         whoWonLabel.text = ""
         iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
-        cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+       cardsView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
     }
     override func viewDidLayoutSubviews() {
         cardsView.updateFrame()
@@ -62,8 +62,9 @@ class ViewController: VCLLoggingViewController {
                 cardsView.addCardToView()
             }
         }
+        
     }
-    private func setTextInCard(button: UIButton, card: Card) {
+    private func setTextInCard(button: UIButton, card: setGameCard) {
         var shape = intToShapeMap[card.attributes[0]]!
         let color = intToColorMap[card.attributes[1]]!
         let fill = intToFillMap[card.attributes[2]]!
@@ -133,7 +134,7 @@ extension ViewController: SetGameDelegate {
     func dealtCard(didDealt: Bool) {
         cardsView.addCardToView()
     }
-    func replacedCard(card: Card, index: Int) {
+    func replacedCard(card: setGameCard, index: Int) {
         updateViewForCard(button: cardsView.cardButtons[index], index: index)
     }
     func gameOver() {

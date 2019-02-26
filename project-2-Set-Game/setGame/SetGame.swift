@@ -9,9 +9,9 @@
 import Foundation
 
 class SetGame {
-    private(set) var selectedCards = [Card]()
-    private(set) var deck = [Card]()
-    private(set) var cardsOnBoard = [Card]()
+    private(set) var selectedCards = [setGameCard]()
+    private(set) var deck = [setGameCard]()
+    private(set) var cardsOnBoard = [setGameCard]()
     private(set) var selectedCardsMatched: Bool?
     private(set) var score = 0 
     private var timeWhenGameStarted = Date.init()
@@ -29,9 +29,9 @@ class SetGame {
     func resetGame() {
         stopTimers()
         isGameOver = false
-        selectedCards =  [Card]()
-        cardsOnBoard = [Card]()
-        deck = [Card]()
+        selectedCards =  [setGameCard]()
+        cardsOnBoard = [setGameCard]()
+        deck = [setGameCard]()
         resetDeckAndBoard()
         selectedCardsMatched = nil
         timeWhenGameStarted = Date.init()
@@ -92,7 +92,7 @@ class SetGame {
         let timePassedSinceGameStarted = Double (Date.init().timeIntervalSince(timeWhenGameStarted))
         return isThereAMatch ?  2000  / timePassedSinceGameStarted : -100
     }
-    private func replaceMatchedCards(chosenCards: Array<Card>){
+    private func replaceMatchedCards(chosenCards: Array<setGameCard>){
         for card in chosenCards {
             if let indexOfCard = cardsOnBoard.index(of: card) {
                 // if there are more cards in the deck
@@ -107,7 +107,7 @@ class SetGame {
         }
         selectedCardsMatched = false
     }
-    private func checkIfSelectedcCardsMatch(cards: Array<Card>) -> Bool {
+    private func checkIfSelectedcCardsMatch(cards: Array<setGameCard>) -> Bool {
         var attributesMapsArray = [[Int: Bool](),[Int: Bool](),[Int: Bool](),[Int: Bool]()]
         for card in cards {
             var attributeType = 0
@@ -187,7 +187,7 @@ class SetGame {
             for fill in 0...2 {
                 for color in 0...2 {
                     for number in 0...2 {
-                        deck.append(Card(shape: shape,fill: fill,color: color, number: number))
+                        deck.append(setGameCard(shape: shape,fill: fill,color: color, number: number))
                     }
                 }
             }
@@ -249,7 +249,7 @@ class SetGame {
         delegate?.gameOver()
     }
     private func opponentFoundAMatchActions(matchIndices: Array<Int>) {
-        var matched = [Card]()
+        var matched = [setGameCard]()
         for index in matchIndices {
             matched.append(self.cardsOnBoard[index])
             if let indexToRemove = self.selectedCards.firstIndex(of: self.cardsOnBoard[index]) {
@@ -263,13 +263,13 @@ class SetGame {
 
 #if DEBUG
 extension SetGame {
-    func setDeck(newDeck: [Card]){
+    func setDeck(newDeck: [setGameCard]){
         self.deck = newDeck
     }
-    func setCardsOnBoard(newCardsOnBoard: [Card]){
+    func setCardsOnBoard(newCardsOnBoard: [setGameCard]){
         self.cardsOnBoard = newCardsOnBoard
     }
-    func setSelectedCards(newSelectedCards: [Card]){
+    func setSelectedCards(newSelectedCards: [setGameCard]){
         self.selectedCards = newSelectedCards
     }
     func createNonShuffledDeckForTest() {
@@ -279,10 +279,10 @@ extension SetGame {
     func dealTwelveCardsForTest() {
         self.dealMoreCards(cardsToDeal: 12)
     }
-    func checkIfSelectedcCardsMatchTest(cards: Array<Card>) -> Bool {
+    func checkIfSelectedcCardsMatchTest(cards: Array<setGameCard>) -> Bool {
         return self.checkIfSelectedcCardsMatch(cards: cards)
     }
-    func replaceMatchedCardsTest(chosenCards: Array<Card>) {
+    func replaceMatchedCardsTest(chosenCards: Array<setGameCard>) {
         return self.replaceMatchedCards(chosenCards: chosenCards)
     }
 }

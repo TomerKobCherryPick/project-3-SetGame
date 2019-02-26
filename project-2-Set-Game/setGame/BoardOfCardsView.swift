@@ -13,7 +13,7 @@ class BoardOfCardsView: UIView {
     weak var delegate: BoardOfCardsDelegate?
     
     @IBOutlet var contentView: UIView!
-    lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.5), frame: self.bounds)
+    lazy private var grid = Grid(layout: Grid.Layout.aspectRatio(0.6), frame: self.bounds)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
