@@ -68,14 +68,13 @@ class Concentration {
         }
     }
     private func cardsMatchedUpdate(index: Int, IndexOfFacedUpCard: Int){
-        score += Int(100 * calulateFactor())
+        score += Int(calulateFactor())
         cards[IndexOfFacedUpCard].isMatched = true
         cards[index].isMatched = true
     }
     private func calulateFactor() -> Double {
-        let currentTime = Date.init()
-        return 1 / currentTime.timeIntervalSince(timeWhenGameStarted)
-        
+        let timePassedSinceGameStarted = Double (Date.init().timeIntervalSince(timeWhenGameStarted))
+        return  (1000 / timePassedSinceGameStarted) + 30
     }
     
     private func hadBeenSeen (index: Int) -> Bool{
@@ -87,7 +86,7 @@ class Concentration {
     }
     
     private func degradeScore() {
-            score -= Int(2  * 1 / calulateFactor())
+            score -= 50
     }
     
     init(numberOfButtons: Int){

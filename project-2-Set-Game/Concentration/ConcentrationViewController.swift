@@ -13,8 +13,8 @@ class ConcentrationViewController: UIViewController {
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
     lazy var emojiChoises = returnEmojiTheme(index: 0)
-    lazy var cardTheme = returnCardTheme(index: 0)
-    lazy var backgroundTheme = returnBackgroundTheme(index: 0)
+    lazy var cardThemeColor = returnCardTheme(index: 0)
+    lazy var backgroundThemeColor = returnBackgroundTheme(index: 0)
     var cardIdToEmojiMap  = [Int:String]()
     private lazy var game = Concentration(numberOfButtons: cardButtons.count)
     private let backgroundThemes = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
@@ -45,9 +45,9 @@ class ConcentrationViewController: UIViewController {
         didSet {
             if themeIndex != nil {
                 emojiChoises = EmojiTheme[themeIndex!]
-                cardTheme = cardThemes[themeIndex!]
-                backgroundTheme = backgroundThemes[themeIndex!]
-                view.backgroundColor = backgroundTheme
+                cardThemeColor = cardThemes[themeIndex!]
+                backgroundThemeColor = backgroundThemes[themeIndex!]
+                view.backgroundColor = backgroundThemeColor
                 cardIdToEmojiMap  = [:]
                 updateViewFromModel()
                 navigationItem.title = ConcentrationThemeChooserViewController.themeNameToIndex[themeIndex!]
@@ -57,7 +57,7 @@ class ConcentrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgroundTheme
+        view.backgroundColor = backgroundThemeColor
         for button in cardButtons {
              button.layer.cornerRadius = 6.0
         }
@@ -70,7 +70,7 @@ class ConcentrationViewController: UIViewController {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = cardTheme
+            button.backgroundColor = cardThemeColor
         }
         game.resetGame(numberOfButtons: cardButtons.count)
     }
@@ -99,7 +99,7 @@ class ConcentrationViewController: UIViewController {
                     button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 } else {
                     button.setTitle("", for: UIControl.State.normal)
-                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : cardTheme
+                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : cardThemeColor
                 }
             }
         }
@@ -116,8 +116,8 @@ class ConcentrationViewController: UIViewController {
     private func generateRandomTheme() {
         themeIndex = returnRandomIndex()
         emojiChoises = EmojiTheme[themeIndex!]
-        cardTheme = cardThemes[themeIndex!]
-        backgroundTheme = backgroundThemes[themeIndex!]
+        cardThemeColor = cardThemes[themeIndex!]
+        backgroundThemeColor = backgroundThemes[themeIndex!]
     }
     
     private func returnEmojiTheme(index: Int) -> [String] {
